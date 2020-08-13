@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  exercise1EndPoint: 'http://patovega.com/prueba_frontend/array.php',
+  exercise2EndPoint: 'http://patovega.com/prueba_frontend/dict.php'
 };
 
 /*

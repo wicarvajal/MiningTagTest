@@ -1,0 +1,14 @@
+.img-default {
+  max-width: 100%;
+  border-radius: $border-radius-small;
+}
+
+.main-logo {
+  max-width: 80%;
+  border-radius: 13px !important;
+  margin-top: -6px;
+}
+
+.img-raised{
+  box-shadow: $box-shadow-raised;
+}

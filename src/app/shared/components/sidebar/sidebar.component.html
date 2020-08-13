@@ -1,0 +1,40 @@
+<div class="logo">
+  <a (click)="onShowDetail(1)">
+    <img class="main-logo" src="../../../../assets/img/logo-mining-tag.png" />
+  </a>
+</div>
+
+
+<div class="sidebar-wrapper" >
+  <ul class="nav">
+    <li routerLinkActive="active" *ngFor="let menuitem of menuItems">
+      <!--If is a single link-->
+      <a [routerLink]="[menuitem.path]" *ngIf="menuitem.type === 'link'" class="sidebar-menuitem">
+        <i>
+          <fa-icon [icon]="menuitem.icontype"></fa-icon>
+        </i>
+        <p>{{menuitem.title}}</p>
+      </a>
+      <!--If it have a submenu-->
+      <a data-toggle="collapse" href="#{{menuitem.collapse}}" *ngIf="menuitem.type === 'sub'">
+        <i>
+          <fa-icon [icon]="menuitem.icontype"></fa-icon>
+        </i>
+        <p>{{menuitem.title}}<b class="caret"></b></p>
+      </a>
+
+      <!--Display the submenu items-->
+      <div id="{{menuitem.collapse}}" class="collapse" *ngIf="menuitem.type === 'sub'">
+        <ul class="nav">
+          <li routerLinkActive="active" *ngFor="let childitem of menuitem.children">
+            <a [routerLink]="[menuitem.path, childitem.path]">
+              <span class="sidebar-mini-icon">{{childitem.ab}}</span>
+              <span class="sidebar-normal">{{childitem.title}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <!-- <app-sidebar-footer></app-sidebar-footer> -->
+</div>
