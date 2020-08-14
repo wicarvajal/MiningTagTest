@@ -1,0 +1,58 @@
+import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectorRef, OnChanges, SimpleChanges } from '@angular/core';
+import { ExerciseOneTableModel } from '../../../models/exerciseOneTable.model';
+import * as _ from 'lodash';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-exercise-one-form',
+  templateUrl: './exercise-one-form.component.html',
+  styleUrls: ['./exercise-one-form.component.scss']
+})
+export class ExerciseOneFormComponent implements OnInit, OnChanges {
+  @Output() getArrayData = new EventEmitter<any>();
+  @Input() public numberArray: number[];
+  numberArrayProcessed: ExerciseOneTableModel[] = [];
+  exerciseOneForm: FormGroup;
+  orderedNumbers: FormControl;
+
+  constructor(private ref: ChangeDetectorRef, private fb: FormBuilder) {
+  }
+
+  ngOnInit() {
+    this.exerciseOneForm = this.fb.group({
+      orderedNumbers: new FormControl()
+    });
+  }
+
+  emitGetArrayData() {
+    this.getArrayData.emit();
+    this.ref.detectChanges();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.numberArray && this.numberArray) {
+      this.numberArrayProcessed = _.uniqBy(this.formatNumberArray(this.numberArray), 'processedNumber');
+      this.displayOrderedNumbers();
+    }
+  }
+
+  formatNumberArray(numberArray: number[]) {
+    this.numberArrayProcessed = [];
+    for (const [i, numb] of numberArray.entries()) {
+      const numbItem = {
+        index: i,
+        processedNumber: numb,
+        quantity: _.filter(numberArray, (v) => numb === v).length,
+        firstPosition: _.findIndex(numberArray, (v) => numb === v),
+        lastPosition: _.findLastIndex(numberArray, (v) => numb === v),
+      } as ExerciseOneTableModel;
+
+      this.numberArrayProcessed.push(numbItem);
+    }
+    return this.numberArrayProcessed;
+  }
+
+  displayOrderedNumbers() {
+    this.exerciseOneForm.get('orderedNumbers').patchValue(_.uniq(_.orderBy(this.numberArray)).join(' - '));
+  }
+}

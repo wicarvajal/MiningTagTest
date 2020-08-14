@@ -1,0 +1,49 @@
+<div class="col-12 table-responsive">
+  <table class="table mx-auto">
+    <thead>
+      <th class="text-center">
+        N°
+      </th>
+      <th class="text-center">
+        Indice
+      </th>
+      <th class="text-center">
+        Número
+      </th>
+      <th class="text-center">
+        Cantidad Ocurrencias
+      </th>
+      <th class="text-center">
+        Primera Posición
+      </th>
+      <th class="text-center">
+        Última Posición
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let numb of numberArray" 
+      [ngClass]="{'green-highlight': numb.quantity >= 2,
+                  'yellow-highlight': numb.quantity === 1,
+                  'grey-highlight': numb.quantity < 1 }">
+        <td class="text-center">
+          {{numb.index + 1}}
+        </td>
+        <td class="text-center">
+          {{numb.index}}
+        </td>
+        <td class="text-center">
+          {{numb.processedNumber}}
+        </td>
+        <td class="text-center">
+          {{numb.quantity}}
+        </td>
+        <td class="text-center">
+          {{numb.firstPosition}}
+        </td>
+        <td class="text-center">
+          {{numb.lastPosition}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

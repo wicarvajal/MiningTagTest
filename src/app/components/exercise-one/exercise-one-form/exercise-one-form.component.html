@@ -1,0 +1,9 @@
+<form [formGroup]="exerciseOneForm">
+
+  <button class="btn btn-outline-secondary col-12 mb-4" (click)="emitGetArrayData()">Consultar EndPoint</button>
+
+  <app-exercise-one-table [numberArray]="numberArrayProcessed"></app-exercise-one-table>
+
+  <input type="text" class="form-control col-12 text-center mt-3" formControlName="orderedNumbers" readonly>
+
+</form>
