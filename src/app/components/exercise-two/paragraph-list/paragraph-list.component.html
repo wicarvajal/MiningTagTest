@@ -1,4 +1,5 @@
-
-<div class="alert alert-primary">
-  
+<div class="mt-4">
+  <div class="alert alert-secondary" *ngFor="let paragraph of paragraphs; let i = index">
+    <strong>Párrafo {{i+1 + ': ' }}</strong> {{ paragraph }}
+  </div>
 </div>

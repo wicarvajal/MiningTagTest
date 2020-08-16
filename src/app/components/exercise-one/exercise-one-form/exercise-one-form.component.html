@@ -1,6 +1,8 @@
 <form [formGroup]="exerciseOneForm">
 
-  <button class="btn btn-outline-secondary col-12 mb-4" (click)="emitGetArrayData()">Consultar EndPoint</button>
+  <button class="btn btn-outline-secondary col-12 mb-4" (click)="emitGetArrayData()">
+    Consultar EndPoint: Arreglo de números
+  </button>
 
   <app-exercise-one-table [numberArray]="numberArrayProcessed"></app-exercise-one-table>
 

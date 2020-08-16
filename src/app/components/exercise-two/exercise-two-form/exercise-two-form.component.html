@@ -1,10 +1,9 @@
 <form>
-
   <button class="btn btn-outline-secondary col-12 mb-4" (click)="emitGetArrayData()">
-    Consultar EndPoint
+    Consultar EndPoint: Arreglo de Párrafos
   </button>
 
   <app-exercise-two-table [alphabet]="alphabet" [processedParagraphs]="proccessedParagraphs"></app-exercise-two-table>
 
-
+  <app-paragraph-list [paragraphs]="paragraphArray"></app-paragraph-list>
 </form>
