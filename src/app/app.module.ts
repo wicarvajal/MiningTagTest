@@ -10,6 +10,9 @@ import { ExerciseOneService } from './services/exercise-one.service';
 import { ExerciseOneFormComponent } from './components/exercise-one/exercise-one-form/exercise-one-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExerciseOneTableComponent } from './components/exercise-one/exercise-one-table/exercise-one-table.component';
+import { ExerciseTwoService } from './services/exercise-two.service';
+import { ExerciseTwoFormComponent } from './components/exercise-two/exercise-two-form/exercise-two-form.component';
+import { ExerciseTwoTableComponent } from './components/exercise-two/exercise-two-table/exercise-two-table.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,8 @@ import { ExerciseOneTableComponent } from './components/exercise-one/exercise-on
     ExerciseTwoComponent,
     ExerciseOneFormComponent,
     ExerciseOneTableComponent,
+    ExerciseTwoFormComponent,
+    ExerciseTwoTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { ExerciseOneTableComponent } from './components/exercise-one/exercise-on
     SharedModule,
   ],
   providers: [
-    ExerciseOneService
+    ExerciseOneService,
+    ExerciseTwoService
   ],
   bootstrap: [AppComponent]
 })
