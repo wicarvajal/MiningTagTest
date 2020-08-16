@@ -1,1 +1,29 @@
-<p>exercise-two-table works!</p>
+<div class="col-12 table-responsive">
+  <table class="table mx-auto">
+    <thead>
+      <th class="text-center">
+        N°
+      </th>
+      <th class="text-center" *ngFor="let char of alphabet">
+        {{char | uppercase}}
+      </th>
+
+      <th class="text-center">
+        Suma numéricos
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proccessedRow of processedParagraphs" >
+        <td class="text-center">
+          {{proccessedRow.index + 1}}
+        </td>
+        <td class="text-center" *ngFor="let proccessedChar of proccessedRow.alphabetOccurrences" >
+          {{proccessedChar.occurrenceCounter}}
+        </td>
+        <td class="text-center">
+          {{proccessedRow.numberAccumulator}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -13,6 +13,7 @@ import { ExerciseOneTableComponent } from './components/exercise-one/exercise-on
 import { ExerciseTwoService } from './services/exercise-two.service';
 import { ExerciseTwoFormComponent } from './components/exercise-two/exercise-two-form/exercise-two-form.component';
 import { ExerciseTwoTableComponent } from './components/exercise-two/exercise-two-table/exercise-two-table.component';
+import { ParagraphListComponent } from './components/exercise-two/paragraph-list/paragraph-list.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ExerciseTwoTableComponent } from './components/exercise-two/exercise-tw
     ExerciseOneTableComponent,
     ExerciseTwoFormComponent,
     ExerciseTwoTableComponent,
+    ParagraphListComponent,
   ],
   imports: [
     BrowserModule,

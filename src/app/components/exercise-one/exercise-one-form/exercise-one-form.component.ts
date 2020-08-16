@@ -38,18 +38,23 @@ export class ExerciseOneFormComponent implements OnInit, OnChanges {
 
   formatNumberArray(numberArray: number[]) {
     this.numberArrayProcessed = [];
-    for (const [i, numb] of numberArray.entries()) {
-      const numbItem = {
-        index: i,
-        processedNumber: numb,
-        quantity: _.filter(numberArray, (v) => numb === v).length,
-        firstPosition: _.findIndex(numberArray, (v) => numb === v),
-        lastPosition: _.findLastIndex(numberArray, (v) => numb === v),
-      } as ExerciseOneTableModel;
 
+    for (const [i, numb] of numberArray.entries()) {
+      const numbItem = this.mapperNumberArrayToTableModel(i, numb);
       this.numberArrayProcessed.push(numbItem);
     }
+
     return this.numberArrayProcessed;
+  }
+
+  private mapperNumberArrayToTableModel(i: number, numb: number) {
+    return {
+      index: i,
+      processedNumber: numb,
+      quantity: _.filter(this.numberArray, (v) => numb === v).length,
+      firstPosition: _.findIndex(this.numberArray, (v) => numb === v),
+      lastPosition: _.findLastIndex(this.numberArray, (v) => numb === v),
+    } as ExerciseOneTableModel;
   }
 
   displayOrderedNumbers() {

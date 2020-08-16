@@ -1,7 +1,10 @@
 <form>
 
-  <button class="btn btn-outline-secondary col-12 mb-4" (click)="emitGetArrayData()">Consultar EndPoint</button>
+  <button class="btn btn-outline-secondary col-12 mb-4" (click)="emitGetArrayData()">
+    Consultar EndPoint
+  </button>
 
-  <app-exercise-two-table></app-exercise-two-table>
+  <app-exercise-two-table [alphabet]="alphabet" [processedParagraphs]="proccessedParagraphs"></app-exercise-two-table>
+
 
 </form>
