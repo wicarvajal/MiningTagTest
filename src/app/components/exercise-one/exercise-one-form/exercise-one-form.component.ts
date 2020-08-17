@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectorRef, OnCh
 import { ExerciseOneTableModel } from '../../../models/exerciseOneTable.model';
 import * as _ from 'lodash';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { showLoading } from '../../../shared/utils/swalLoading';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-exercise-one-form',
@@ -27,12 +29,14 @@ export class ExerciseOneFormComponent implements OnInit, OnChanges {
   emitGetArrayData() {
     this.getArrayData.emit();
     this.ref.detectChanges();
+    showLoading();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.numberArray && this.numberArray) {
       this.numberArrayProcessed = _.uniqBy(this.formatNumberArray(this.numberArray), 'processedNumber');
       this.displayOrderedNumbers();
+      Swal.close();
     }
   }
 

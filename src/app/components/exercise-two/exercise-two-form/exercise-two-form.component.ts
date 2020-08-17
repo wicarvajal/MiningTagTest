@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { AlphabetOccurrence, ExerciseTwoTableModel } from '../../../models/exerciseTwoTable.model';
 import * as _ from 'lodash';
+import { showLoading } from '../../../shared/utils/swalLoading';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-exercise-two-form',
@@ -43,6 +45,8 @@ export class ExerciseTwoFormComponent implements OnInit, OnChanges {
 
       this.proccessedParagraphs.push(proccesedParagraph);
     }
+
+    Swal.close();
   }
 
   private findAlphabetOccurrences(splittedParagraph: string[]) {
@@ -63,6 +67,7 @@ export class ExerciseTwoFormComponent implements OnInit, OnChanges {
   }
 
   emitGetArrayData() {
+    showLoading();
     this.getArrayData.emit();
   }
 }

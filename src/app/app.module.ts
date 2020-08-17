@@ -14,6 +14,7 @@ import { ExerciseTwoService } from './services/exercise-two.service';
 import { ExerciseTwoFormComponent } from './components/exercise-two/exercise-two-form/exercise-two-form.component';
 import { ExerciseTwoTableComponent } from './components/exercise-two/exercise-two-table/exercise-two-table.component';
 import { ParagraphListComponent } from './components/exercise-two/paragraph-list/paragraph-list.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ParagraphListComponent } from './components/exercise-two/paragraph-list
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [
     ExerciseOneService,
