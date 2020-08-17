@@ -1,0 +1,43 @@
+@import "~bootstrap/scss/bootstrap";
+@import "paper-dashboard/variables";
+@import "paper-dashboard/mixins";
+
+// Plugins CSS
+@import "paper-dashboard/plugins/plugin-datatables.net";
+@import "paper-dashboard/plugins/plugin-bootstrap-table";
+
+// Core CSS
+@import "paper-dashboard/nucleo-outline";
+@import "paper-dashboard/misc-extend";
+@import "paper-dashboard/animated-buttons";
+@import "paper-dashboard/buttons";
+@import "paper-dashboard/misc";
+@import "paper-dashboard/inputs";
+@import "paper-dashboard/typography";
+@import "paper-dashboard/navbar";
+@import "paper-dashboard/dropdown";
+@import "paper-dashboard/images";
+@import "paper-dashboard/tables";
+
+// components
+@import "paper-dashboard/checkboxes-radio";
+@import "paper-dashboard/sidebar-and-main-panel";
+
+// cards
+@import "paper-dashboard/cards";
+
+@import "paper-dashboard/cards/card-background";
+@import "paper-dashboard/cards/card-collapse";
+@import "paper-dashboard/cards/card-lock";
+@import "paper-dashboard/cards/card-stats";
+
+@import "paper-dashboard/example-pages";
+@import "paper-dashboard/responsive";
+
+$token-text-color: #fff;
+$token-remove-color: #fff;
+
+$box-shadow-color: #959595;
+$list-hover-background: #f5f5f5;
+$label-color: #000;
+$selected-background: $primary-color;
