@@ -8,15 +8,6 @@ export interface RouteInfo {
   type: string;
   collapse?: string;
   icontype: IconDefinition;
-  // icon: string;
-  children?: ChildrenItems[];
-}
-
-export interface ChildrenItems {
-  path: string;
-  title: string;
-  ab: string;
-  type?: string;
 }
 
 // Menu Items
@@ -41,8 +32,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
   faHome = faHome;
   faCheckCircle = faCheckCircle;
-  faEdit = faEdit;
-  faFileAlt = faFileAlt;
   public menuItems: any[];
 
   constructor() {}

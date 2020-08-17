@@ -23,7 +23,6 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     location: Location;
     private toggleButton;
     private sidebarVisible: boolean;
-    // tslint:disable-next-line: variable-name
     private _router: Subscription;
     public open = false;
 
@@ -60,23 +59,19 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
             misc.sidebar_mini_active = false;
 
         } else {
-            // tslint:disable-next-line: only-arrow-functions
-            setTimeout(function () {
+            setTimeout(() => {
                 body.classList.add('sidebar-mini');
 
                 misc.sidebar_mini_active = true;
             }, 300);
         }
 
-        // we simulate the window Resize so the charts will get updated in realtime.
-        // tslint:disable-next-line: only-arrow-functions
-        const simulateWindowResize = setInterval(function () {
+
+        const simulateWindowResize = setInterval(() => {
             window.dispatchEvent(new Event('resize'));
         }, 180);
 
-        // we stop the simulation of Window Resize after the animations are completed
-        // tslint:disable-next-line: only-arrow-functions
-        setTimeout(function () {
+        setTimeout(() => {
             clearInterval(simulateWindowResize);
         }, 1000);
     }
@@ -91,8 +86,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
-        // tslint:disable-next-line: only-arrow-functions
-        setTimeout(function () {
+        setTimeout(() => {
             toggleButton.classList.add('toggled');
         }, 500);
         const mainPanel = document.getElementsByClassName('main-panel')[0] as HTMLElement;
@@ -110,16 +104,12 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
         const mainPanel = document.getElementsByClassName('main-panel')[0] as HTMLElement;
 
         if (window.innerWidth < 991) {
-            // tslint:disable-next-line: only-arrow-functions
-            setTimeout(function () {
+            setTimeout(() => {
                 mainPanel.style.position = '';
             }, 500);
         }
     }
     sidebarToggle() {
-        // var toggleButton = this.toggleButton;
-        // var body = document.getElementsByTagName('body')[0];
-        // tslint:disable-next-line: triple-equals
         if (this.sidebarVisible == false) {
             this.sidebarOpen();
         } else {
@@ -138,7 +128,6 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
             if (parent.path === titlee) {
                 return parent.title;
             } else if (parent.children) {
-                // tslint:disable-next-line: variable-name
                 const children_from_url = titlee.split('/')[2];
                 // tslint:disable-next-line: prefer-for-of
                 for (let current = 0; current < parent.children.length; current++) {
